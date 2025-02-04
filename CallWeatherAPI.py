@@ -1,7 +1,7 @@
+import pandas as pd
 import openmeteo_requests
 
 import requests_cache
-import pandas as pd
 from retry_requests import retry
 
 def callApi(params):
@@ -11,3 +11,5 @@ def callApi(params):
     openmeteo = openmeteo_requests.Client(session = retry_session)
 
     responses = openmeteo.weather_api(url, params = params)
+    response = responses[0]
+    return response
