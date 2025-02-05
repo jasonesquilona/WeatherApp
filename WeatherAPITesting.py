@@ -4,7 +4,7 @@ from CallWeatherAPI import callApi
 
 class TestWeatherAPI(unittest.TestCase):
 
-    def test_call(self):
+    def test_api_call(self):
         params = {
             "latitude" : 49.2497,
             "longitude": -123.1193,
