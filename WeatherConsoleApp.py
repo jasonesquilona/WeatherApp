@@ -1,5 +1,8 @@
 import CallWeatherAPI
 
+import numpy as np
+import pandas as pd
+
 def showMenu():
     menu = [
         "1. Input Longtitude/Latitude",
@@ -32,9 +35,25 @@ def getLongLat():
             "longitude": long,
             "hourly": "temperature_2m"
         }
-        CallWeatherAPI(params)
+        response = CallWeatherAPI(params)
+        getTemperatureResponse(response)
         
-
+def getTemperatureResponse(response):
+    hourly = response.Hourly()
+    # https://pypi.org/project/openmeteo-requests/
+    hourly_temperature_2m = hourly.Variables(0).ValueasNumpy()
+    
+    hourly_data = {"date": pd.date_range(
+        start = pd.to_datetime(hourly.Time(), unit = "s"),
+        end = pd.to_datetime(hourly.TimeEnd(), unit = "s"),
+        freq = pd.Timedelta(seconds = hourly.Interval()),
+	    inclusive = "left"
+    )}
+    hourly_data["temperature_2m"] = hourly_temperature_2m
+    hourly_dataframe_pd = pd.DataFrame(data = hourly_data)
+    print(hourly_dataframe_pd)
+    
+    
 def main():
     selection = True
     while selection:
