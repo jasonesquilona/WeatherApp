@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { Loader } from '@googlemaps/js-api-loader';
-import * as dotenv from 'dotenv'
 
 @Component({
   selector: 'app-city-weather-search',
@@ -14,7 +13,7 @@ export class CityWeatherSearchComponent {
 
   private autoComplete : any;
   private loader = new Loader({
-    apiKey: process.env['GOOGLE_MAPS_API_KEY'] as string,
+    apiKey: import.meta.env.NG_APP_GOOGLEMAPS_API_KEY,
     version: "weekly",
   });
 
