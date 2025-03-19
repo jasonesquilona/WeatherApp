@@ -15,7 +15,7 @@ Including another URLconf
 """
 
 from django.contrib import admin
-from django.urls import path
+from django.urls import include, path
 from django.conf.urls import url
 from django.contrib import admin
 from django.views.generic.base import TemplateView
@@ -24,6 +24,6 @@ from weather_app.views import *
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api-auth/', include('rest_framework.urls')),
-    path('getData/', get_data),
+    path('api/weather', get_data),
     path('', TemplateView.as_view(template_name="home.html"), name="home"),
 ]
