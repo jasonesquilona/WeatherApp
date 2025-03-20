@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Loader } from '@googlemaps/js-api-loader';
-import { CityService } from '../../services/city.service';
+import { CityService } from '../services/city.service';
+
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-city-weather-search',
@@ -18,6 +20,7 @@ export class CityWeatherSearchComponent implements OnInit {
     apiKey: import.meta.env.NG_APP_GOOGLEMAPS_API_KEY,
     version: "weekly",
   });
+  private router = new Router();
 
   constructor() {
     this.loader.importLibrary('places').then(() => {
@@ -40,9 +43,13 @@ export class CityWeatherSearchComponent implements OnInit {
     });
   }
   ngOnInit(): void {
-    throw new Error('Method not implemented.');
   }
 
   onSearch() {
+    console.log("Search button clicked");
+    this.router.navigate(['/weather', "123"]);
+    if(this.place) {
+      console.log("Search for weather in", this.place.name);
+    }
   }
 }

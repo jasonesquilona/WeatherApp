@@ -1,13 +1,13 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { CityWeatherSearchComponent } from "./city/city-weather-search/city-weather-search.component";
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { HomeComponent } from "./home/home.component";
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, CityWeatherSearchComponent, FormsModule, HttpClientModule],
+  imports: [RouterOutlet, FormsModule, HttpClientModule, HomeComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
