@@ -15,7 +15,7 @@ import { Router } from '@angular/router';
 export class CityWeatherSearchComponent implements OnInit {
 
   private autoComplete : any;
-  private place: any;
+  public place: any;
   private loader = new Loader({
     apiKey: import.meta.env.NG_APP_GOOGLEMAPS_API_KEY,
     version: "weekly",
@@ -47,9 +47,9 @@ export class CityWeatherSearchComponent implements OnInit {
 
   onSearch() {
     console.log("Search button clicked");
-    this.router.navigate(['/weather', "123"]);
     if(this.place) {
       console.log("Search for weather in", this.place.name);
+      this.router.navigate(['/weather', "123"]);
     }
   }
 }
