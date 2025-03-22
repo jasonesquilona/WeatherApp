@@ -4,6 +4,7 @@ declare interface Env {
   // Replace the following with your own environment variables.
   // Example: NGX_VERSION: string;
   readonly NG_APP_GOOGLEMAPS_API_KEY :string;
+  readonly NG_APP_API_BASE_URL :string;
   [key: string]: any;
 }
 

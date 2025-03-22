@@ -16,12 +16,12 @@ export const routes: Routes = [
     component: HomeComponent
   },
   {
-    path: 'weather/:data', 
+    path: 'weather', 
     component: WeatherComponent,
     children: [
       {path: '', redirectTo: 'today', pathMatch: 'full'},
       {path: 'today', component: TodayWeatherComponent},
-      { path: '**', component: PageNotFoundComponent }
     ]
   },
+  { path: '**', component: PageNotFoundComponent }
 ];

@@ -3,6 +3,7 @@ import { Loader } from '@googlemaps/js-api-loader';
 import { CityService } from '../services/city.service';
 
 import { Router } from '@angular/router';
+import queryString from 'query-string';
 
 @Component({
   selector: 'app-city-weather-search',
@@ -46,10 +47,14 @@ export class CityWeatherSearchComponent implements OnInit {
   }
 
   onSearch() {
-    console.log("Search button clicked");
+    console.log("Search button clicked")
+    console.log("Place", this.place);
     if(this.place) {
-      console.log("Search for weather in", this.place.name);
-      this.router.navigate(['/weather', "123"]);
+      this.router.navigate(['/weather'],
+        { queryParams: 
+          { city: this.place.name, lat: this.place.geometry.location.lat(), lon: this.place.geometry.location.lng()}
+        }
+      );
     }
   }
 }

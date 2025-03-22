@@ -30,6 +30,7 @@
     "@ngx-env/builder": "^19.0.4",
     "@types/googlemaps": "^3.43.3",
     "dotenv": "^16.4.7",
+    "query-string": "^9.1.1",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.14.3"
