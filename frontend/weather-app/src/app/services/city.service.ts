@@ -11,7 +11,7 @@ export class CityService {
   private baseURL = import.meta.env.NG_APP_API_BASE_URL;
   constructor(private httpClient: HttpClient) { }
 
-  getData(params: { city: string | null, lat: string | null, lon: string | null }):Observable<any>{ 
+  getData(params: { city: string | null, lat: string | null, lon: string | null , version: string}):Observable<any>{ 
     console.log("City", params.city);
     console.log("Lat",  params.lat);
     console.log("Lon",  params.lon);
@@ -24,6 +24,9 @@ export class CityService {
     }
     if(params.lon){
       httpParams = httpParams.set('lon', params.lon);
+    }
+    if(params.version){
+      httpParams = httpParams.set('version', params.version);
     }
     console.log(this.baseURL);
     console.log(httpParams);

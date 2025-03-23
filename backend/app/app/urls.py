@@ -25,5 +25,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('api-auth/', include('rest_framework.urls')),
     path('api/weather', get_data),
-     path("", views.home, name="home"),
+    path("", views.home, name="home"),
 ]

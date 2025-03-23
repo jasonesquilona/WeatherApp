@@ -21,10 +21,8 @@ export class TodayWeatherComponent implements OnInit {
     const city = this.activatedRoute.snapshot.queryParamMap.get('city');
     const lat = this.activatedRoute.snapshot.queryParamMap.get('lat');
     const lon = this.activatedRoute.snapshot.queryParamMap.get('lon');
-    console.log("City", city);
-    console.log("Lat", lat);
-    console.log("Lon", lon);
-    this.service.getData({city, lat, lon}).subscribe({
+    const version = 'today'
+    this.service.getData({city, lat, lon,version}).subscribe({
       next: (data : any) => {
         this.data = data;
         //console.log("Weather Data", this.data);
