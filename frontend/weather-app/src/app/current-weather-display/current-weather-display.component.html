@@ -1,0 +1,16 @@
+<div class="container">
+    <div *ngIf="!weatherData">Loading...</div>
+    <div *ngIf="weatherData">
+        <mat-card>
+            <mat-card-header>
+                <mat-card-title id="mainCardTitle">This is a test</mat-card-title>
+                <mat-card-subtitle id="mainCardSubTitle">Testing</mat-card-subtitle>
+            </mat-card-header>
+            <mat-card-content>
+                <h1 id ="mainTemperature">Test Temp</h1>
+                <h2 id ="mainHighlow">High: test Low: testing</h2>
+                <h2 id ="mainCondition">Test</h2>
+            </mat-card-content>
+        </mat-card>
+    </div>
+</div>

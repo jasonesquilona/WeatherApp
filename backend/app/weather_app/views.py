@@ -22,8 +22,8 @@ def get_data(request):
         'lat': lat,
         'lon': lon,
     }
-    callApi(data, version)
-    return JsonResponse(data)
+    processedData = callApi(data, version)
+    return JsonResponse({"weather_data": processedData})
 
 
 def home(request):
