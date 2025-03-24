@@ -3,13 +3,13 @@ import { Component, Input, SimpleChanges, OnChanges, ChangeDetectorRef } from '@
 import { MatCardModule } from '@angular/material/card';
 
 @Component({
-  selector: 'app-current-weather-display',
+  selector: 'app-current-weather',
   standalone: true,
   imports: [MatCardModule, CommonModule],
-  templateUrl: './current-weather-display.component.html',
-  styleUrl: './current-weather-display.component.css'
+  templateUrl: './current-weather.component.html',
+  styleUrl: './current-weather.component.css'
 })
-export class CurrentWeatherDisplayComponent implements OnChanges{
+export class CurrentWeatherComponent implements OnChanges{
 
   @Input() weatherData: any;
   private isViewInitialized: boolean = false;
