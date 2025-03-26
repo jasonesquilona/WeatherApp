@@ -35,10 +35,6 @@ export class CurrentWeatherComponent implements OnChanges{
     const location = weather_data.location;
     const current = weather_data.current;
     const forecast = weather_data.forecast;
-    console.log("Testing Update");
-    console.log(location);
-    console.log(current);
-    console.log(forecast);
     this.updateMainContainer(current, location, forecast);
   }
 

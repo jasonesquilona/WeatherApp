@@ -8,12 +8,28 @@ from datetime import datetime
 def callApi(params, version):
     load_dotenv()
     WEATHER_API_URL = os.getenv("WEATHER_API_URL")
-    url = "http://api.weatherapi.com/v1/forecast.json?"
+    forecasturl = "http://api.weatherapi.com/v1/forecast.json?"
+    astrourl = "http://api.weatherapi.com/v1/astronomy.json?"
     API_KEY = "a2ebbe09b9fa4581bf0193257252203"
-    url += "key=" + API_KEY
+    forecasturl += "key=" + API_KEY
+    astrourl += "key=" + API_KEY
+    processed_data = None
     if version == "today":
-        url += "&q=" + params['city'] +"," + params['lat'] + "," + params['lon'] + "&days=3"
-        
+        forecasturl += "&q=" + params['city'] +"," + params['lat'] + "," + params['lon'] + "&days=3" 
+    processed_data = get_forecast(forecasturl)
+    if(processed_data ==  None):
+        return None
+    currentDate = datetime.strptime(processed_data['current']['last_updated'], '%Y-%m-%d %H:%M')
+    print(currentDate)
+    astrourl += "&q=" + params['city'] +"," + params['lat'] + "," + params['lon'] + "&dt=" + currentDate.strftime('%Y-%m-%d')
+    astro_data = get_astro(astrourl)
+    if(astro_data == None):
+        return None
+    processed_data['astro'] = astro_data['astro']
+    return processed_data
+    
+    
+def get_forecast(url): 
     try:
         # Make a GET request to the API endpoint using requests.get()
         response = requests.get(url)
@@ -30,7 +46,7 @@ def callApi(params, version):
         # Any NetworkErrors
         print('Error:', e)
         return None
-    return response
+    
 
 def process_forecast(forecast_data):
     current = forecast_data['current']
@@ -112,7 +128,37 @@ def process_forecast(forecast_data):
             day_data['overnight']['avgtemp_c'] = sum(overnight_temps) / len(overnight_temps)
             day_data['overnight']['condition'] = most_freq(overnight_conditions)
         processed_data['forecast'].append(day_data)
+    return processed_data 
+
+def get_astro(url):
+    try:
+        # Make a GET request to the API endpoint using requests.get()
+        response = requests.get(url)
+
+        # Check if the request was successful (status code 200)
+        if response.status_code == 200:
+            posts = response.json()
+            processed_data = process_astro(posts)
+            return processed_data
+        else:
+            print('Error:', response.status_code)
+            return None
+    except requests.exceptions.RequestException as e:
+        # Any NetworkErrors
+        print('Error:', e)
+        return None
+    
+def process_astro(astro_data):
+    astro = astro_data['astronomy']['astro']
+    processed_data = {
+        'astro': {
+            'sunrise': astro['sunrise'],
+            'sunset': astro['sunset'],
+            'moon_phase': astro['moon_phase']
+        }
+    }
     return processed_data
+    
 
 
 def most_freq(lst):

@@ -1,0 +1,6 @@
+<div *ngIf="loading">Loading...</div>
+<div *ngIf="!loading">
+    <app-current-weather [weatherData]="data"></app-current-weather>
+    <app-today-forecast [weatherData] ="data"></app-today-forecast>
+    <app-weather-today [weatherData]="data"></app-weather-today>
+</div>

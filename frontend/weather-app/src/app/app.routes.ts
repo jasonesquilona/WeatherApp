@@ -1,6 +1,6 @@
 import { Routes } from '@angular/router';
 import { AppComponent } from './app.component';
-import { TodayWeatherComponent } from './today-weather/today-weather.component';
+import { TodayWeatherPageComponent } from './today-weather-page/today-weather-page.component';
 import { WeatherComponent } from './weather/weather.component';
 import { HomeComponent } from './home/home.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
@@ -20,7 +20,7 @@ export const routes: Routes = [
     component: WeatherComponent,
     children: [
       {path: '', redirectTo: 'today', pathMatch: 'full'},
-      {path: 'today', component: TodayWeatherComponent},
+      {path: 'today', component: TodayWeatherPageComponent},
     ]
   },
   { path: '**', component: PageNotFoundComponent }
