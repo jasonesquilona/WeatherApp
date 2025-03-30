@@ -1,5 +1,88 @@
 .container {
-    display: flex;
+    height: 100%;
     justify-content: center;
-    height: 30vh; /* Adjust as needed */
+    padding: 3px;
+    width: 25% !important;
+    margin: 0 auto;
+}
+
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+  
+.title-section {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+  
+.info-section {
+    display: flex; /* Use Flexbox to align leftMainRow and row horizontally */
+    justify-content: space-between; /* Add space between leftMainRow and row */
+    align-items: center; /* Vertically align the items */
+    gap: 16px; /* Add spacing between the two sections */
+}
+
+.header-content {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.row {
+    display: flex;
+    justify-content: flex-end; /* Align items to the right */
+    align-items: center; /* Vertically center the items */
+    gap: 16px; /* Add spacing between sunrise and sunset fields */
+}
+
+.leftMainRow{
+    flex: 1; /* Allow leftMainRow to take up available space */
+    font-size: 1rem;
+}
+
+.row h3 {
+    margin: 0;
+    font-size: 1rem;
+    color: #555;
+    white-space: nowrap;
+}
+
+.details-section{
+    display: block;
+    gap: 16px;
+}
+
+.details-section-top{
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+}
+
+.details-section-left {
+    display: inline-block;
+    align-items: center; /* Vertically center the items */
+    text-align: left;
+    width: 50%;
+    display: inline-block;
+}
+
+.details-section-right{
+    display: inline-block;
+    align-items: center; /* Vertically center the items */
+    text-align: left;
+    width: 50%;
+    display: inline-block;
+}
+
+.details-section-mid{
+    justify-content: center; /* Align items to the centers */
+    align-items: center; /* Vertically center the items */
+    margin-top: auto;
+}
+
+.detail-bottom-section {
+    justify-content: center;
+    text-align: center; /* Vertically center the items */
 }

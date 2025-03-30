@@ -1,18 +1,41 @@
 <div class="container">
     <mat-card>
-        <mat-card-header>
-            <mat-card-title id="WeatherTodayTitle">This is a test</mat-card-title>
-            <h3 id="sunTimes"></h3>
-        </mat-card-header>
-        <mat-card-content>
-            <h2 id ="feelsLikeField">Feels Like Test</h2>
-            <h3 id ="highLowField">High/Field Test</h3>
-            <h3 id ="humidityField">Humidity Test</h3>
-            <h3 id ="pressureField">Pressure Test</h3>
-            <h3 id ="visibilityField">Visibility Test</h3>
-            <h3 id ="windField">Wind Test</h3>
-            <h3 id ="dewPointField">Dew Point Test</h3>
-            <h3 id ="uvIndexfield">uvIndex</h3>
-        </mat-card-content>
+            <mat-card-header>
+                <div class="header-content">
+                    <div class="title-section">
+                      <mat-card-title id="weatherTodayTitle">Weather Today: Test Location</mat-card-title>
+                    </div>
+                    <div class="info-section">
+                        <div class = "leftMainRow">
+                            <h2 id ="feelsLikeField">Feels Like Test</h2>
+                        </div>
+                        <div class="row">
+                            <h3 id="sunriseField">Sunrise: Test AM</h3>
+                            <h3 id="sunsetField">Sunset: Test PM</h3>
+                        </div>
+                    </div>
+                </div>
+            </mat-card-header>
+            <mat-card-content>
+                <div class="detail-section">
+                    <div class="detail-section-top">
+                        <div class="details-section-left">
+                            <h3 id ="highLowField">High/Field Test</h3>
+                            <h3 id ="humidityField">Humidity Test</h3>
+                            <h3 id ="pressureField">Pressure Test</h3>
+                        </div>
+                        <div class="details-section-right">
+                            <h3 id ="visibilityField">Visibility Test</h3>
+                            <h3 id ="windField">Wind Test</h3>
+                            <h3 id ="dewPointField">Dew Point Test</h3>
+                        </div>
+                    </div>  
+                    <div class="detail-bottom-section">
+                        <div class="details-section-mid">
+                            <h3 id ="moonPhaseField">Moon Phase Test</h3>
+                        </div>
+                    </div>
+                </div>
+            </mat-card-content>
     </mat-card>
 </div>

@@ -64,6 +64,12 @@ def process_forecast(forecast_data):
             'condition': current['condition']['text'],
             'wind_kph': current['wind_kph'],
             'humidity': current['humidity'],
+            'feels_like': current['feelslike_c'],
+            'pressure': current['pressure_mb'],
+            'visibility': current['vis_km'],
+            'wind_speed': current['wind_kph'],
+            'wind_dir': current['wind_dir'],
+            'dewpoint': current['dewpoint_c'],
             'last_updated': current['last_updated']
         },
         'forecast': []

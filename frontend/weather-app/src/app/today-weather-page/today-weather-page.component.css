@@ -1,0 +1,7 @@
+.loading{
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    height: 100%; /* Set the height to fill the viewport */
+    text-align: center; /* Ensure text is centered inside the container */
+    margin: 0 auto
+}
